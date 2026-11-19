@@ -1,0 +1,35 @@
+<Window
+    x:Class="PhialeTech.Grid.Samples.Avalonia.ServerGrouping.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:grid="using:PhialeGrid.Avalonia.Controls"
+    xmlns:config="clr-namespace:PhialeTech.Grid.Samples.Avalonia.ServerGrouping.Configuration"
+    Title="Phiale.Grid · 04 · Server grouping + MVVM"
+    Width="1000"
+    Height="580"
+    MinWidth="650"
+    MinHeight="360"
+    Background="{DynamicResource Phiale.Design.Brush.Surface.Base}">
+    <DockPanel
+        Margin="{DynamicResource Phiale.Design.Thickness.Form.Padding}">
+        <StackPanel
+            DockPanel.Dock="Top">
+            <TextBlock
+                Text="Server-side grouping · Warehouse → Category" />
+            <TextBlock
+                Text="Group by Warehouse and Category. Expand a group, change page and inspect full-group summaries."
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="POST http://127.0.0.1:5188/api/stocks/query · SQLite · read-only"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="{Binding Grid.CurrentRecordId, StringFormat=Current record: {0}}" />
+            <TextBlock
+                Text="{Binding Grid.SelectedRecordIds.Count, StringFormat=Selected records: {0}}" />
+        </StackPanel>
+        <grid:PhialeGrid ShowDiagnosticStatus="False"
+            x:Name="StocksGrid"
+            Context="{Binding Grid}"
+            LanguageCode="en"></grid:PhialeGrid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,34 @@
+using PhialeGrid.Contracts;
+using PhialeGrid.Core;
+using PhialeGrid.Core.Columns;
+using PhialeGrid.Core.Data;
+using PhialeTech.Grid.Samples.Avalonia.SqliteBinding.Models;
+
+namespace PhialeTech.Grid.Samples.Avalonia.SqliteBinding.Composition;
+
+/// <summary>Application-owned Grid session. All paging/query rules remain in Grid Core.</summary>
+public sealed class StockGridComposition : IDisposable
+{
+    private GridDataSession<StockRow>? _session;
+
+    public GridDataBinding CreateBinding(IReadOnlyList<StockRow> rows,
+        IReadOnlyList<IGridColumnDescriptor> columns)
+    {
+        _session?.Dispose();
+        _session = null;
+        // SQLite was already read by the repository. This session queries the supplied rows in memory.
+        _session = GridDataBuilder.For<StockRow>()
+            .Columns(columns) // Fields and presentation metadata.
+            .Key(row => row.Id) // Stable unique identity.
+            .Clone(row => row with { }) // StockRow is a record; copy before editing.
+            .Records(rows) // The repository already loaded the complete selected set.
+            .Build(); // No CommitUsing: this example is read-only.
+        return GridApiFactory.CreateDataBinding(_session);
+    }
+
+    public void Dispose()
+    {
+        _session?.Dispose();
+        _session = null;
+    }
+}

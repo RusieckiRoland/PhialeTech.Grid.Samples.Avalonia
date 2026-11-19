@@ -1,0 +1,92 @@
+<Window
+    x:Class="PhialeTech.Grid.Samples.Avalonia.LocalEditing.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:grid="using:PhialeGrid.Avalonia.Controls"
+    xmlns:config="clr-namespace:PhialeTech.Grid.Samples.Avalonia.LocalEditing.Configuration"
+    Title="Phiale.Grid · 05 · Zapis lokalny do SQLite"
+    Width="1220"
+    Height="760"
+    MinWidth="820"
+    MinHeight="480"
+    Background="{DynamicResource Phiale.Design.Brush.Surface.Base}">
+    <DockPanel
+        Margin="{DynamicResource Phiale.Design.Thickness.Form.Padding}">
+        <StackPanel
+            DockPanel.Dock="Top">
+            <TextBlock
+                Text="05 · Zapis lokalny: buforowany albo natychmiastowy"
+                TextWrapping="Wrap" />
+            <StackPanel
+                Orientation="Horizontal"
+                IsEnabled="{Binding CanChangeSaveMode}"
+                Margin="0,6,0,6">
+                <RadioButton
+                    Content="Zapis buforowany"
+                    IsChecked="{Binding IsBuffered}"
+                    GroupName="SaveMode"
+                    Margin="0,0,16,0" />
+                <RadioButton
+                    Content="Zapis natychmiastowy"
+                    IsChecked="{Binding IsImmediate}"
+                    GroupName="SaveMode" />
+            </StackPanel>
+            <TextBlock
+                Text="{Binding ModeExplanation}"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="Panel Zmiany pokazuje pola przed/po edycji. Lista Kategoria jest zamknięta; Lokalizacja pozwala wpisać własną wartość. Pusta data oznacza brak planowanego przeglądu."
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="{Binding Status}"
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="{Binding DatabasePath, StringFormat=Baza robocza: {0}}"
+                TextWrapping="Wrap" />
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="0,8,0,8">
+                <Button
+                    IsVisible="{Binding IsBuffered}"
+                    Command="{Binding Grid.SaveCommand}"
+                    Theme="{StaticResource Phiale.Design.Style.Button.Secondary}"
+                    Margin="0,0,8,0">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <ContentControl
+                            Theme="{StaticResource Phiale.Design.Style.ActionGlyph}"
+                            Content="{StaticResource Phiale.Design.Geometry.Action.Save}"
+                            Foreground="{Binding Foreground,RelativeSource={RelativeSource AncestorType=Button}}"
+                            Margin="0,0,6,0" />
+                        <TextBlock
+                            Text="Zapisz przez ViewModel" />
+                    </StackPanel>
+                </Button>
+                <Button
+                    IsVisible="{Binding IsBuffered}"
+                    Command="{Binding Grid.DiscardCommand}"
+                    Theme="{StaticResource Phiale.Design.Style.Button.Secondary}"
+                    Margin="0,0,8,0">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <ContentControl
+                            Theme="{StaticResource Phiale.Design.Style.ActionGlyph}"
+                            Content="{StaticResource Phiale.Design.Geometry.Action.Discard}"
+                            Foreground="{Binding Foreground,RelativeSource={RelativeSource AncestorType=Button}}"
+                            Margin="0,0,6,0" />
+                        <TextBlock
+                            Text="Odrzuć zmiany" />
+                    </StackPanel>
+                </Button>
+                <TextBlock
+                    Text="{Binding Grid.CurrentRecordId, StringFormat=Bieżący rekord: {0}}"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+        </StackPanel>
+        <grid:PhialeGrid
+            x:Name="AssetsGrid"
+            Context="{Binding Grid}"
+            HideUnavailableMenuItems="True"
+            LanguageCode="pl"></grid:PhialeGrid>
+    </DockPanel>
+</Window>

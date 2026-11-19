@@ -1,0 +1,30 @@
+<Window
+    x:Class="PhialeTech.Grid.Samples.Avalonia.RowDetails.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:config="clr-namespace:PhialeTech.Grid.Samples.Avalonia.HttpRest.Configuration"
+    xmlns:grid="using:PhialeGrid.Avalonia.Controls"
+    xmlns:details="clr-namespace:PhialeTech.Grid.Samples.Avalonia.RowDetails.Details"
+    Title="Phiale.Grid · 07 · Własny UserControl wewnątrz wiersza"
+    Width="1080"
+    Height="700"
+    MinWidth="760"
+    MinHeight="460"
+    Background="{DynamicResource Phiale.Design.Brush.Surface.Base}">
+    <DockPanel
+        Margin="{DynamicResource Phiale.Design.Thickness.Form.Padding}">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="0,0,0,12">
+            <TextBlock
+                Text="07 · Rozwiń szczegóły rekordu przyciskiem +" />
+            <TextBlock
+                Text="Własny AssetDetailsView pojawia się wewnątrz tabeli, pod swoim rekordem. Możesz rozwinąć kilka kart; każda ma własny kontekst danych."
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <grid:PhialeGrid ShowDiagnosticStatus="False"
+            x:Name="AssetsGrid"
+            Context="{Binding Grid}"
+            LanguageCode="pl"></grid:PhialeGrid>
+    </DockPanel>
+</Window>

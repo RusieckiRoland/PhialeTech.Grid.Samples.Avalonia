@@ -1,0 +1,52 @@
+<Window
+    x:Class="PhialeTech.Grid.Samples.Avalonia.NestedGrid.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:config="clr-namespace:PhialeTech.Grid.Samples.Avalonia.NestedGrid.Configuration"
+    xmlns:grid="using:PhialeGrid.Avalonia.Controls"
+    Title="Phiale.Grid · 08 · Edycja master i detail"
+    Width="1220"
+    Height="850"
+    MinWidth="900"
+    MinHeight="600"
+    Background="{DynamicResource Phiale.Design.Brush.Surface.Base}">
+    <DockPanel
+        Margin="{DynamicResource Phiale.Design.Thickness.Form.Padding}">
+        <StackPanel
+            DockPanel.Dock="Top"
+            Margin="0,0,0,12">
+            <TextBlock
+                Text="08 · Edycja lokalizacji i jej wyposażenia"
+                FontWeight="SemiBold"
+                FontSize="18" />
+            <!-- This presentation option belongs to the master. False restores separate bars. -->
+            <CheckBox
+                Content="Jeden pasek poleceń dla aktywnej tabeli"
+                Theme="{StaticResource Phiale.Design.Style.CheckBox}"
+                IsChecked="{Binding ElementName=LocationsGrid, Path=UseSharedDetailCommandBar, Mode=TwoWay}" />
+            <TextBlock
+                Text="Master: edytuj kontakt, telefon i uwagi. Detail: rozwiń + i edytuj nazwę, ilość lub cenę wyposażenia."
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="Dwuklik rozpoczyna edycję. Enter/Zastosuj przenosi ją do bufora danej tabeli. Zapisz utrwala zmiany aktywnej tabeli w SQLite, a Odrzuć zmiany czyści jej bufor."
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="Cel wspólnego paska wskazuje etykieta. Każda tabela zapisuje osobno; zapis mastera nie zapisuje detaili. Zwinięcie detailu zachowuje jego bufor. Klucze i przypisanie do lokalizacji są stałe."
+                TextWrapping="Wrap" />
+            <TextBlock
+                Text="{Binding DatabasePath, StringFormat=Baza robocza: {0}}"
+                TextWrapping="Wrap" />
+            <TextBlock
+                x:Name="CloseNotice"
+                IsVisible="False"
+                Text="Zakończ edycję i zapisz albo odrzuć zmiany w każdej tabeli przed zamknięciem."
+                TextWrapping="Wrap" />
+        </StackPanel>
+        <grid:PhialeGrid ShowDiagnosticStatus="False"
+            x:Name="LocationsGrid"
+            Context="{Binding Grid}"
+            UseSharedDetailCommandBar="True"
+            HideUnavailableMenuItems="True"
+            LanguageCode="pl"></grid:PhialeGrid>
+    </DockPanel>
+</Window>

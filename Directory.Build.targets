@@ -1,0 +1,7 @@
+<Project>
+  <!-- Link only native presentation/bootstrap files. Every lesson owns its data composition. -->
+  <ItemGroup Condition="'$(OutputType)' == 'WinExe'">
+    <Compile Include="$(MSBuildThisFileDirectory)Shared/*.cs" Link="Common/%(Filename)%(Extension)" />
+    <AvaloniaResource Include="$(MSBuildThisFileDirectory)Shared/*.axaml" Link="Common/%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

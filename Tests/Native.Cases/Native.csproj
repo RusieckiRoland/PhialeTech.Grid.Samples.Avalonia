@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net8.0</TargetFramework><IsPackable>false</IsPackable></PropertyGroup><ItemGroup>
+<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1"/><PackageReference Include="NUnit" Version="3.14.0"/><PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
+<PackageReference Include="Avalonia.Headless.NUnit" Version="11.3.7"/><PackageReference Include="Avalonia.Skia" Version="11.3.7"/><PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7"/>
+<PackageReference Include="PhialeTech.Grid.Core" Version="$(PhialeGridVersion)"/><PackageReference Include="PhialeTech.Grid.Avalonia" Version="$(PhialeGridVersion)"/>
+<FrameworkReference Include="Microsoft.AspNetCore.App"/>
+<ProjectReference Include="../../Samples/01-SqliteBinding/SqliteBinding.csproj" Aliases="one"/>
+<ProjectReference Include="../../Samples/02-DataVirtualization/DataVirtualization.csproj" Aliases="two"/>
+<ProjectReference Include="../../Samples/03-HttpRest/Client/HttpRest.csproj" Aliases="three"/>
+<ProjectReference Include="../../Samples/04-ServerGrouping/Client/ServerGrouping.csproj" Aliases="four"/>
+<ProjectReference Include="../../Samples/05-LocalEditing/LocalEditing.csproj" Aliases="five"/>
+<ProjectReference Include="../../Samples/06-RestSnapshot/RestSnapshot.csproj" Aliases="six"/>
+<ProjectReference Include="../../Samples/07-RowDetails/RowDetails.csproj" Aliases="seven"/>
+<ProjectReference Include="../../Samples/08-NestedGrid/NestedGrid.csproj" Aliases="eight"/>
+<ProjectReference Include="../../Samples/03-HttpRest/Server/HttpRest.Server.csproj" Aliases="restserver"/>
+<ProjectReference Include="../../Samples/04-ServerGrouping/Server/ServerGrouping.Server.csproj" Aliases="groupserver"/>
+<ProjectReference Include="../../Samples/06-RestSnapshot/Server/PriceReview.Server.csproj" Aliases="priceserver"/>
+<Content Include="../../Data/local-editing.sqlite" Link="Data/local-editing.sqlite" CopyToOutputDirectory="PreserveNewest"/>
+</ItemGroup></Project>

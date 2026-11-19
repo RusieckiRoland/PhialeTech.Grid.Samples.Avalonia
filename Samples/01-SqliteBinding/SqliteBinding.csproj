@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PhialeTech.Grid.Samples.Avalonia.SqliteBinding</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="PhialeTech.Grid.Contracts" Version="$(PhialeGridVersion)" />
+    <PackageReference Include="PhialeTech.Grid.Core" Version="$(PhialeGridVersion)" />
+    <PackageReference Include="PhialeTech.Grid.Avalonia" Version="$(PhialeGridVersion)" />
+    <PackageReference Include="Phiale.Design.Avalonia" Version="$(PhialeDesignAvaloniaVersion)" />
+    <PackageReference Include="UniversalInput.Contracts" Version="3.0.0-preview.3" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="10.0.15" />
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.5" />
+    <Content Include="../../Data/warehouse-1000000.sqlite" Link="Data/warehouse-1000000.sqlite" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7" />
+  </ItemGroup>
+</Project>

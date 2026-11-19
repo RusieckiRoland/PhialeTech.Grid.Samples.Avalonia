@@ -1,0 +1,4 @@
+<Project>
+  <!-- Use the same versions as individual sample and test projects. -->
+  <Import Project="Directory.Build.props" />
+</Project>

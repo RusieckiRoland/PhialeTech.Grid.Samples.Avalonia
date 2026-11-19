@@ -1,0 +1,48 @@
+<Window
+    x:Class="PhialeTech.Grid.Samples.Avalonia.DataVirtualization.Views.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:grid="using:PhialeGrid.Avalonia.Controls"
+    Title="Phiale.Grid · 02 · Local data virtualization"
+    Width="1280"
+    Height="760"
+    MinWidth="640"
+    MinHeight="400"
+    Background="{DynamicResource Phiale.Design.Brush.Surface.Base}">
+    <DockPanel
+        Margin="{DynamicResource Phiale.Design.Thickness.Form.Padding}">
+        <StackPanel
+            Margin="0,0,0,12"
+            DockPanel.Dock="Top"
+            IsEnabled="{Binding IsIdle}"
+            Orientation="Horizontal">
+            <TextBlock
+                VerticalAlignment="Center"
+                Text="Dataset scope: " />
+            <ComboBox
+                Width="180"
+                Margin="8,0,12,0"
+                ItemsSource="{Binding DatasetSizes}"
+                SelectedItem="{Binding SelectedSize}"
+                Theme="{StaticResource Phiale.Design.Style.ComboBox}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock
+                            Text="{Binding StringFormat={}{0:N0}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button
+                Command="{Binding ReloadCommand}"
+                Content="Open dataset"
+                Theme="{StaticResource Phiale.Design.Style.Button.Secondary}" />
+        </StackPanel>
+        <TextBlock
+            DockPanel.Dock="Top"
+            Text="{Binding Status}" />
+        <grid:PhialeGrid ShowDiagnosticStatus="False"
+            x:Name="StockGrid"
+            Context="{Binding Grid}"
+            LanguageCode="en" />
+    </DockPanel>
+</Window>

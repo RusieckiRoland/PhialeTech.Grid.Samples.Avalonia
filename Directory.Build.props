@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <PhialeGridVersion>2.0.0-preview.12.inset.1</PhialeGridVersion>
+    <PhialeDesignAvaloniaVersion>0.1.0-preview.50.scroll.1</PhialeDesignAvaloniaVersion>
+    <!-- Views use constructor injection; parameterless XAML activation is intentionally unused. -->
+    <NoWarn>$(NoWarn);AVLN3001</NoWarn>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
+  </PropertyGroup>
+  <PropertyGroup Condition="!$([MSBuild]::IsOSPlatform('Windows'))">
+    <!-- Separate Linux outputs keep cross-platform checks from replacing Windows restore assets. -->
+    <BaseIntermediateOutputPath>wsl_obj/</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+    <BaseOutputPath>wsl_bin/</BaseOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);**/bin/**;**/obj/**;**/wsl_bin/**;**/wsl_obj/**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

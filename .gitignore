@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+.vs/
+artifacts/
+*.user
+*.suo
+**/*-wal
+**/*-shm
+*.log
+
+# Machine-local, unpublished binary candidates; fresh clones use nuget.org.
+LocalPackages.props
+
+**/wsl_bin/
+**/wsl_obj/

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>WinExe</OutputType><TargetFramework>net8.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+ <ItemGroup>
+  <Compile Remove="Server/**" /><None Remove="Server/**" /><Page Remove="Server/**" /><Resource Remove="Server/**" />
+  <PackageReference Include="PhialeTech.Grid.Core" Version="$(PhialeGridVersion)" />
+  <PackageReference Include="PhialeTech.Grid.Avalonia" Version="$(PhialeGridVersion)" />
+  <PackageReference Include="Phiale.Design.Avalonia" Version="$(PhialeDesignAvaloniaVersion)" />
+  <PackageReference Include="PhialeTech.Grid.Data.Http" Version="$(PhialeGridVersion)" />
+ </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7" />
+  </ItemGroup>
+</Project>

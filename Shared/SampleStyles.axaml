@@ -1,0 +1,46 @@
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style
+        Selector="Window">
+        <Setter
+            Property="Background"
+            Value="{DynamicResource Phiale.Design.Brush.Surface.Base}" />
+    </Style>
+    <Style
+        Selector="TextBlock">
+        <Setter
+            Property="Foreground"
+            Value="{DynamicResource Phiale.Design.Brush.Text.Primary}" />
+        <Setter
+            Property="FontSize"
+            Value="{DynamicResource Phiale.Design.Text.BodySmall.FontSize}" />
+        <Setter
+            Property="FontFamily"
+            Value="{DynamicResource Phiale.Design.Text.Body.FontFamily}" />
+    </Style>
+    <Style
+        Selector="Button">
+        <Setter
+            Property="Theme"
+            Value="{StaticResource Phiale.Design.Style.Button.Secondary}" />
+    </Style>
+    <Style
+        Selector="ComboBox">
+        <Setter
+            Property="Theme"
+            Value="{StaticResource Phiale.Design.Style.ComboBox}" />
+    </Style>
+    <Style
+        Selector="TextBox">
+        <Setter
+            Property="Theme"
+            Value="{StaticResource Phiale.Design.Style.TextBox}" />
+    </Style>
+    <Style
+        Selector="CheckBox">
+        <Setter
+            Property="Theme"
+            Value="{StaticResource Phiale.Design.Style.CheckBox}" />
+    </Style>
+</Styles>
