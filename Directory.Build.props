@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
-    <PhialeGridVersion>2.0.0-preview.12.inset.1</PhialeGridVersion>
-    <PhialeDesignAvaloniaVersion>0.1.0-preview.50.scroll.1</PhialeDesignAvaloniaVersion>
+    <PhialeGridVersion>2.0.0-preview.13</PhialeGridVersion>
+    <PhialeDesignAvaloniaVersion>0.1.0-preview.52</PhialeDesignAvaloniaVersion>
     <!-- Views use constructor injection; parameterless XAML activation is intentionally unused. -->
     <NoWarn>$(NoWarn);AVLN3001</NoWarn>
     <Nullable>enable</Nullable>

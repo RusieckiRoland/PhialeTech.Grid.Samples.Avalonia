@@ -22,7 +22,7 @@ Open PhialeTech.Grid.Samples.Avalonia.sln. Start the first lesson from this dire
 dotnet run --project Samples/01-SqliteBinding/SqliteBinding.csproj -c Release
 ```
 For 03/04/06 first start its Server project in a separate terminal, then its client.
-The application restores Grid 2.0.0-preview.12.inset.1 and Design.Avalonia 0.1.0-preview.50.scroll.1 from NuGet.org.
+The application restores Grid 2.0.0-preview.13 and Design.Avalonia 0.1.0-preview.52 from NuGet.org.
 The public source database uses Git LFS. After a clone run git lfs install and git lfs pull.
 
 Example code and synthetic data are MIT; component packages retain their own Phiale license.

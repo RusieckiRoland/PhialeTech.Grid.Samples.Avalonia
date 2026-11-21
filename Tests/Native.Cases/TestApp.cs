@@ -7,7 +7,7 @@ namespace PhialeSamples.NativeTests;
 
 public static class Bootstrap
 {
-    public static AppBuilder BuildAvaloniaApp() => AppBuilder.Configure<TestApp>().WithInterFont().UseSkia().UseHeadless(new AvaloniaHeadlessPlatformOptions { UseHeadlessDrawing = false });
+    public static AppBuilder BuildAvaloniaApp() => AppBuilder.Configure<TestApp>().UseSkia().UseHeadless(new AvaloniaHeadlessPlatformOptions { UseHeadlessDrawing = false });
 }
 public partial class TestApp : Application
 {
